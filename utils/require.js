@@ -33,5 +33,6 @@ export function requestGet(url, data) {
   }
   
   
-  export var indexURL = "https://b.zhuishushenqi.com/category/classifylist?node=bf0a65255a5b4c138052dca8ef065753"
-  
+  export var indexURL = "https://b.zhuishushenqi.com/category/classifylist?node=bf0a65255a5b4c138052dca8ef065753" //首页
+  export var bookURL="http://api.zhuishushenqi.com/book/"                                                        //书籍详情  ?_id
+  export var reviewURL="http://api.zhuishushenqi.com/post/review/by-book?book="           //评论

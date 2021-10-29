@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-search": "../../conmonpents/dist/search",
     "van-cell": "../../conmonpents/dist/cell/index",
-    "van-cell-group": "../../conmonpents/dist/cell-group/index"
+    "van-cell-group": "../../conmonpents/dist/cell-group/index",
+    "van-icon": "../../conmonpents/dist/icon/index"
   }
 
 }

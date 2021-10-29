@@ -1,66 +1,37 @@
 // pages/book/book.js
+import { requestGet, bookURL,reviewURL } from "../../utils/require";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    book: [],
+    review:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.id = options.id;
+    console.log(bookURL,this.id)
+    this.getBookData();
+    this.getReviewData();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onReady: function () { },
+  async getBookData() {
+    const result1 = await requestGet(`${bookURL}${this.id}`);
+    // console.log(result1)
+    this.setData({
+      book: result1,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  async getReviewData() {
+    const result2 = await requestGet(`${reviewURL}${this.id}`);
+    // console.log(result2)
+    this.setData({
+      review: result2,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
