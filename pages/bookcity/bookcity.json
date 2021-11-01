@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-grid": "../../conmonpents/dist/grid/index",
+    "van-grid-item": "../../conmonpents/dist/grid-item/index"
+  },
   "navigationBarTitleText": "书城"
 }

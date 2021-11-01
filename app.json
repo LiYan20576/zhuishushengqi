@@ -4,6 +4,7 @@
     "pages/book/book",
     "pages/bookcity/bookcity",
     "pages/bookshelf/bookshelf",
+    "pages/bookdetail/bookdetail",
     "pages/detail/detail"
   ],
   "window": {
@@ -16,19 +17,26 @@
   "sitemapLocation": "sitemap.json",
  
   "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#ffddff",
-    "backgroundColor": "#eeeeee",
-    "position":"bottom",
+    "color": "#999",
+    "selectedColor": "#333",
+    "borderStyle": "black",
+    "position": "bottom",
+    "backgroundColor":"#fff",
     "list": [{
       "pagePath": "pages/index/index",
+      "iconPath": "assets/tabs/home.png",
+      "selectedIconPath": "assets/tabs/home-active.png",
       "text": "主页"
     }, {
       "pagePath": "pages/bookcity/bookcity",
+      "iconPath": "assets/tabs/message.png",
+        "selectedIconPath": "assets/tabs/message-active.png",
       "text": "书城"
     }, {
       "pagePath": "pages/bookshelf/bookshelf",
-      "text": "书架"
+      "text": "书架",
+      "iconPath": "assets/tabs/profile.png",
+        "selectedIconPath": "assets/tabs/profile-active.png"
     }]
   },
   "usingComponents": {}

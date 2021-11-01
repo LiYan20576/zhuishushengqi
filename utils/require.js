@@ -36,3 +36,6 @@ export function requestGet(url, data) {
   export var indexURL = "https://b.zhuishushenqi.com/category/classifylist?node=bf0a65255a5b4c138052dca8ef065753" //首页
   export var bookURL="http://api.zhuishushenqi.com/book/"                                                        //书籍详情  ?_id
   export var reviewURL="http://api.zhuishushenqi.com/post/review/by-book?book="           //评论
+  export var bookCityURL="https://b.zhuishushenqi.com/category/statics?packageName=sapp"                  //书籍一级分类列表
+  export var bookCityDetailURL="https://b.zhuishushenqi.com/books/fuzzy-search?"     //gender=male&type=hot&query=玄幻&cat=东方玄幻
+  export var bookCityCatURL="https://b.zhuishushenqi.com/category/cats"

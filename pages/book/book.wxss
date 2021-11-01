@@ -99,3 +99,19 @@
   font-size: 16px;
   color: #817070;
 }
+.cell .review .title {
+  display: flex;
+}
+.cell .review .title .nickname {
+  flex: 3;
+}
+.cell .review .title .updated {
+  flex: 1;
+}
+.none {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  color: #ccc;
+}

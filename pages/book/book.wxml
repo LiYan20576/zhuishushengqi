@@ -38,15 +38,30 @@
 <van-collapse class="info" value="{{ activeNames }}" bind:change="onChange">
     <van-collapse-item title="简介" name="1">{{book.longIntro}}</van-collapse-item>
 </van-collapse>
-<view class="cell">
-
-    <text hidden="{{review? false :true }}">热门评论</text>
-    <view class="review" wx:for="{{review}}" wx:for-item="item" wx:key="_id">
-    
-        <van-cell title="{{item.author.nickname}}">
-            <view slot="icon">
-                <van-image round width="2rem" height="2rem" src="http://statics.zhuishushenqi.com{{item.author.avatar}}" />
-            </view>
-        </van-cell>
+<block wx:if="{{review.length!=0}}">
+    <view class="cell">
+        <text>热门评论</text>
+        <view class="review" wx:for="{{review}}" wx:for-item="item" wx:key="_id">
+            <van-cell use-label-slot title="">
+                <view slot="icon">
+                    <van-image round width="2rem" height="2rem" src="http://statics.zhuishushenqi.com{{item.author.avatar}}" />
+                </view>
+                <view slot="label">
+                    <text>{{item.content}}</text>
+                </view>
+                <view class="title" slot="title">
+                    <view class="nickname"><text>{{item.author.nickname}}</text></view>
+                    <view class="updated"><text >{{item.updated}}</text></view>
+                </view>
+            </van-cell>
+        </view>
     </view>
-</view>
+</block>
+<block wx:else>
+    <text class="none">暂无评论</text>
+</block>
+<van-goods-action>
+   <van-goods-action-button bind:click="onClickJoin" text="加入书架" type="warning" />
+  <van-goods-action-button bindtap ="onClickBegin"  text="开始阅读" />
+</van-goods-action>
+<van-toast id="van-toast" />
