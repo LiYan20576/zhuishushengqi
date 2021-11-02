@@ -5,6 +5,8 @@
     "pages/bookcity/bookcity",
     "pages/bookshelf/bookshelf",
     "pages/bookdetail/bookdetail",
+    "pages/booksearch/booksearch",
+    "pages/content/content",
     "pages/detail/detail"
   ],
   "window": {

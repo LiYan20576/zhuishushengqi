@@ -17,7 +17,6 @@ Page({
     this.query = options.query;
     this.type='hot';
     this.limit=20;
-    console.log(this.gender,this.query)
     wx.setNavigationBarTitle({ title: options.query }) 
     this.getBookCatData();
     this.getBookDetailData();

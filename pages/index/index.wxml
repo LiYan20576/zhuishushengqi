@@ -1,4 +1,4 @@
-<van-search v-model="value" placeholder="请输入搜索关键词" />
+<van-search v-model="value" placeholder="请输入搜索关键词" bind:search="onSearch" />
 <view class="swiper">
   <swiper previous-margin="30" next-margin="10" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}">
     <block wx:for="{{imgUrls}}" wx:for-item="item" wx:key="link">
@@ -25,7 +25,7 @@
   </van-cell-group>
 </view> -->
 <view class="cell" wx:for="{{series}}" wx:for-item="item" wx:key="_id">
-  <van-cell title="{{item.title}}" is-link value="查看更多" />
+  <van-cell title="{{item.title}}" is-link value="查看更多" link-type="switchTab" url="/pages/bookcity/bookcity" />
   <navigator class="book" wx:for="{{item.books}}" wx:for-item="item2" wx:key="_id" url="/pages/book/book?id={{item2._id}}">
     <view class="image">
       <image class="icon" src="{{item2.cover}}" mode="widthFix" />

@@ -26,9 +26,27 @@ Page({
   async getCell1Data() {
     const result = await requestGet(indexURL);
     console.log(result.data.nodes[1])
-      this.setData({
-        series :result.data.nodes
-      });
+    this.setData({
+      series: result.data.nodes
+    });
   },
-
+  onSearch: function (e) {
+    console.log()
+    wx.navigateTo({
+      url: '/pages/booksearch/booksearch',
+      events: {
+        // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+        acceptDataFromOpenedPage: function(data) {
+          console.log(data)
+        },
+        someEvent: function(data) {
+          console.log(data)
+        }
+      },
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: e.detail })
+      }
+    })
+  }
 })

@@ -58,7 +58,7 @@
     </view>
 </block>
 <block wx:else>
-    <text class="none">暂无评论</text>
+    <view class="none">暂无评论</view>
 </block>
 <van-goods-action>
    <van-goods-action-button bind:click="onClickJoin" text="加入书架" type="warning" />

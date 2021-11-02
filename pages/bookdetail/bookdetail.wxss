@@ -19,21 +19,21 @@
   flex-direction: column;
 }
 .cell .book .about .book_name {
-  flex: 2;
-  font-size: 16px;
+  flex: 1;
+  font-size: 32rpx;
   padding: 20rpx;
   color: #3b3a3a;
 }
 .cell .book .about .book_about {
   flex: 3;
-  font-size: 14px;
+  font-size: 28rpx;
   padding: 18rpx;
   color: #817070;
   overflow: hidden;
 }
 .cell .book .about .book_author {
   flex: 2;
-  font-size: 12px;
+  font-size: 24rpx;
   padding: 20rpx;
   color: #817070;
   display: flex;
@@ -86,4 +86,11 @@
 .cat scroll-view .active {
   color: red;
   border: 1px solid red;
+}
+.none {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 150rpx;
+  color: #ccc;
 }

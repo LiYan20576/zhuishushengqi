@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-cell": "../../conmonpents/dist/cell/index",
+    "van-cell-group": "../../conmonpents/dist/cell-group/index"
+  }
 }

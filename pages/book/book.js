@@ -1,6 +1,6 @@
 // pages/book/book.js
 import Toast from "../../conmonpents/dist/toast/toast";
-import { requestGet, bookURL,reviewURL } from "../../utils/require";
+import { requestGet, bookURL,reviewURL,bookKeyURL } from "../../utils/require";
 Page({
 
   /**
@@ -20,8 +20,13 @@ Page({
    */
   onLoad: function (options) {
     this.id = options.id;
+    this.limit=3;
     console.log(bookURL,this.id)
     console.log(reviewURL,this.id)
+    // console.log(options,'xxxxxxxxxxxxx')
+    
+    this.getBookIdData();
+
     this.getBookData();
     this.getReviewData();
   },
@@ -32,6 +37,7 @@ Page({
     this.author = result1.author
     this.cover = result1.cover
     this.title = result1.title
+    wx.setNavigationBarTitle({ title: result1.title }) 
     for(var i=0,count=0,num =0;i<result1.starRatings.length;i++){
       count+=result1.starRatings[i].count
       num+=result1.starRatings[i].star*result1.starRatings[i].count
@@ -45,20 +51,37 @@ Page({
     });
     
   },
+  async getBookIdData() {
+    
+    const result = await requestGet(`${bookKeyURL}${this.id}`);
+    console.log(result[0]._id)
+    this.bookid=result[0]._id
+  },
   async getReviewData() {
-    const result2 = await requestGet(`${reviewURL}${this.id}`);
+    Toast.loading({
+      duration: 0,
+      message: "加载中...", 
+      forbidClick: true,
+      loadingType: "spinner",
+      selector: '#van-toast',
+    });
+    const result2 = await requestGet(`${reviewURL}${this.id}&limit=${this.limit}`);
     for(var i=0 ; i<result2.reviews.length;i++){
       result2.reviews[i].updated=result2.reviews[i].updated.substring(0, 10)
     }
-    
     this.setData({
       review: result2.reviews,
     });
+    Toast.clear();
   },
   onChange(event) {
     this.setData({
       activeNames: event.detail,
     });
+  },
+  onReachBottom: function () {
+    this.limit+=3
+    this.getReviewData();
   },
   onReady: function () { console.log(this.star)},
   buttonTapChange:function(){
@@ -84,9 +107,10 @@ Page({
     // console.log(this.id,"2222222222222222222")
   },
 
-  onClickBegin() {
+  onClickBegin(e) {
+    var _this=this
     wx.navigateTo({
-      url: '/pages/detail/detail',
+      url: '/pages/detail/detail?id='+_this.id,
       events: {
         // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
         acceptDataFromOpenedPage: function(data) {
@@ -99,7 +123,7 @@ Page({
       },
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: _this.bookid })
       }
     })
   },

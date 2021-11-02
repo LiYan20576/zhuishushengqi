@@ -1,2 +1,3 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="" wx:for="{{chapter}}" wx:for-item="item">
+    <van-cell title="{{item.title}}" is-link data-id="{{item.link}}"   bindtap="typeHandler"/>
+</view>

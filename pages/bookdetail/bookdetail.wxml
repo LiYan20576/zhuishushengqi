@@ -1,7 +1,7 @@
 <view class="type">
-     <view bindtap="typeHandler" class="{{type_id == index ? 'active' :'' }}" wx:for="{{type}}" data-id="{{index}}" wx:for-item="item">
-            {{item}}
-        </view>
+    <view bindtap="typeHandler" class="{{type_id == index ? 'active' :'' }}" wx:for="{{type}}" data-id="{{index}}" wx:for-item="item">
+        {{item}}
+    </view>
 </view>
 <view class="cat">
     <scroll-view scroll-x="{{true}}" style=" white-space: nowrap;">
@@ -10,22 +10,27 @@
         </view>
     </scroll-view>
 </view>
-<view class="cell" wx:for="{{book}}" wx:for-item="item" wx:key="_id">
-    <navigator class="book" url="/pages/book/book?id={{item._id}}">
-        <view class="image">
-            <image class="icon" src="http://statics.zhuishushenqi.com{{item.cover}}" mode="widthFix" />
-        </view>
-        <view class="about">
-            <text class="book_name">{{item.title}}</text>
-            <text class="book_about">{{item.shortIntro}}</text>
-            <view class="book_author">
-                <van-icon name="manager" class="icon" />
-                <text class="author_name">{{item.author}}</text>
-                <view class="book_score">
-                    <text>{{item.retentionRatio}}存留</text>
+<block wx:if="{{book.length!=0}}">
+    <view class="cell" wx:for="{{book}}" wx:for-item="item" wx:key="_id">
+        <navigator class="book" url="/pages/book/book?id={{item._id}}">
+            <view class="image">
+                <image class="icon" src="http://statics.zhuishushenqi.com{{item.cover}}" mode="widthFix" />
+            </view>
+            <view class="about">
+                <text class="book_name">{{item.title}}</text>
+                <text class="book_about">{{item.shortIntro}}</text>
+                <view class="book_author">
+                    <van-icon name="manager" class="icon" />
+                    <text class="author_name">{{item.author}}</text>
+                    <view class="book_score">
+                        <text>{{item.retentionRatio}}存留</text>
+                    </view>
                 </view>
             </view>
-        </view>
-    </navigator>
-</view>
+        </navigator>
+    </view>
+</block>
+<block wx:else>
+    <view class="none">暂无书籍</view>
+</block>
 <van-toast id="van-toast" />
