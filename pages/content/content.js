@@ -16,9 +16,13 @@ content:[]
   async getContentData() {
     // console.log(this.url,`${bookContentURL}${this.url}`)
     const result = await requestGet(`${bookContentURL}${this.url}`);
-    console.log(escape(result.chapter.cpContent), '4444444')
+    // console.log(atob(result.chapter.cpContent)decodeURIComponent(, '4444444')
+    // var enc =window.btoa(result.chapter.cpContent)
+    // console.log(decodeURIComponent(atob(enc)))
+    // console.log(urldecode(atob(result.chapter.cpContent)))
+    console.log(atob(result.chapter.cpContent))
     this.setData({
-      content:result.chapter.cpContent,
+      content:atob(result.chapter.cpContent),
     });
   },
   

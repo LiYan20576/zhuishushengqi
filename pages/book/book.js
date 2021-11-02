@@ -1,4 +1,5 @@
 // pages/book/book.js
+var app = getApp();
 import Toast from "../../conmonpents/dist/toast/toast";
 import { requestGet, bookURL,reviewURL,bookKeyURL } from "../../utils/require";
 Page({
@@ -12,7 +13,9 @@ Page({
     star:null,
     wordCount:null,
     activeNames: ['1'],
-    follower:null
+    follower:null,
+    joinbook:'加入书架',
+    color:[]
   },
 
   /**
@@ -23,8 +26,9 @@ Page({
     this.limit=3;
     console.log(bookURL,this.id)
     console.log(reviewURL,this.id)
-    // console.log(options,'xxxxxxxxxxxxx')
+    console.log(options,'xxxxxxxxxxxxx')
     
+
     this.getBookIdData();
 
     this.getBookData();
@@ -89,12 +93,17 @@ Page({
   },
   onClickJoin() {
     var flag=true
-    var app = getApp();
+    
     // console.log(app.globalData.userInfo)
     var info = {"id":this.id,"cover":this.cover,"author":this.author,"title":this.title}
     for(var i=0;i<app.globalData.userInfo.length;i++){
       if(this.id==app.globalData.userInfo[i].id){
-        Toast('已经在书架中');
+        app.globalData.userInfo.splice(i,1)
+        Toast('已经移出书架');
+        this.setData({
+          joinbook:'加入书架',
+          color:''
+        });
         flag=false;
         break;
       }
@@ -102,6 +111,10 @@ Page({
     if(flag==true){
       app.globalData.userInfo.push(info)
       Toast('加入书架成功');
+      this.setData({
+        joinbook:'移出书架',
+        color:'#ccc'
+      });
     }
     
     // console.log(this.id,"2222222222222222222")
@@ -127,4 +140,14 @@ Page({
       }
     })
   },
+  onShow:function(){
+    for(var i=0;i<app.globalData.userInfo.length;i++){
+      if(this.id==app.globalData.userInfo[i].id){
+        this.setData({
+          joinbook:'移出书架',
+          color:'#ccc'
+        });
+      }
+    }
+  }
 })

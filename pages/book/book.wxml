@@ -61,7 +61,7 @@
     <view class="none">暂无评论</view>
 </block>
 <van-goods-action>
-   <van-goods-action-button bind:click="onClickJoin" text="加入书架" type="warning" />
+   <van-goods-action-button  bind:click="onClickJoin" text="{{joinbook}}" type="warning" color="{{color}}"/>
   <van-goods-action-button bindtap ="onClickBegin"  text="开始阅读" />
 </van-goods-action>
 <van-toast id="van-toast" />
