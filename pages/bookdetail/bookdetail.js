@@ -58,7 +58,7 @@ Page({
   typeHandler:function(e){
     var _this=this
     this.typeAll=['hot','new','reputation','over']
-    console.log(this.typeAll[e.currentTarget.dataset.id]);
+    // console.log(this.typeAll[e.currentTarget.dataset.id]);
     this.type=this.typeAll[e.currentTarget.dataset.id]
     this.setData({
       type_id:e.currentTarget.dataset.id
@@ -82,7 +82,7 @@ Page({
   },
   catHandler:function(e){
     var _this=this
-    console.log(this.catAll[e.currentTarget.dataset.id]);
+    // console.log(this.catAll[e.currentTarget.dataset.id]);
     this.cat=this.catAll[e.currentTarget.dataset.id]
     this.setData({
       cat_id:e.currentTarget.dataset.id

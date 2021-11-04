@@ -19,19 +19,20 @@ Page({
   async getSwiperData() {
     const result = await requestGet(indexURL);
     // console.log(result.data.spread[0].advs)
+    // console.log(result,'111')
     this.setData({
       imgUrls: result.data.spread[0].advs,
     });
   },
   async getCell1Data() {
     const result = await requestGet(indexURL);
-    console.log(result.data.nodes[1])
+    // console.log(result.data.nodes[1])
+    // console.log(result,'222')
     this.setData({
       series: result.data.nodes
     });
   },
   onSearch: function (e) {
-    console.log()
     wx.navigateTo({
       url: '/pages/booksearch/booksearch',
       events: {

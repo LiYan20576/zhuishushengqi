@@ -43,4 +43,4 @@ export function requestGet(url, data) {
   export var bookKeyURL="https://bookapi02.zhuishushenqi.com/btoc?view=summary&platform=h5&book="
   export var bookChapter1URL="https://bookapi01.zhuishushenqi.com/dtoc/"
   export var bookChapter2URL="?view=chapters&channel=mweb&platform=h5&token=TbnzQSOX0DSYw0ck7af5b931604c58f33bd0841e4e3e37737c2bf3124f03e47dddac96de46b0d534c83e8843c696793c1e3b452b440a3bdea96fb3d0b1911d5606c6931f3e5c3b286ae0cf22d638d2c861d59c4ea937e188"
-  export var bookContentURL="https://chapter31.zhuishushenqi.com/chapter2/"
+  export var bookContentURL="http://chapterup.zhuishushenqi.com/chapter/"
